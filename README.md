@@ -1,6 +1,12 @@
-/rnr extract to generate file, logout or exit game so the file generates in WTF/Account/accountname/SavedVariables/RaidnRank.lua
-copy that file into same folder as the .py files
-get raidres.csv name it exactly that place in same folder as .py files
-run python extract_baboons.py
-run raidres.py
-upload finalized_raidres.csv to correct google docs spreadsheet and append it
+# RaidnRank
+
+Workflow for extracting RaidnRank results and preparing the spreadsheet upload.
+
+## Steps
+1. In game, run `/rnr extract`.
+2. Logout or exit so the file is generated at `WTF/Account/<account>/SavedVariables/RaidnRank.lua`.
+3. Copy `RaidnRank.lua` into the same folder as the Python scripts.
+4. Run `python extract_baboons.py`.
+5. Confirm `raidres.csv` is created (name must be exactly `raidres.csv`) in the same folder.
+6. Run `python raidres.py`.
+7. Upload `finalized_raidres.csv` to the correct Google Docs spreadsheet and append it.
