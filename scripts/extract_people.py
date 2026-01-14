@@ -5,6 +5,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 LOG_PATH = BASE_DIR / "WoWCombatLog.txt"
+TEMP_LOG_PATH = BASE_DIR / "temp" / "WoWCombatLog.txt"
 OUTPUT_PATH = BASE_DIR / "people.csv"
 
 
@@ -52,10 +53,11 @@ def extract_names(text):
 
 
 def main():
-    if not LOG_PATH.exists():
-        sys.exit(f"{LOG_PATH} not found")
+    log_path = LOG_PATH if LOG_PATH.exists() else TEMP_LOG_PATH
+    if not log_path.exists():
+        sys.exit(f"{LOG_PATH} or {TEMP_LOG_PATH} not found")
 
-    text = LOG_PATH.read_text(encoding="utf-8", errors="replace")
+    text = log_path.read_text(encoding="utf-8", errors="replace")
     names = extract_names(text)
 
     with OUTPUT_PATH.open("w", newline="", encoding="utf-8") as handle:
