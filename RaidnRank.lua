@@ -23,13 +23,13 @@ end
 local function BuildExport()
   local count = GetNumGuildMembers()
   local entries = {}
-  local lines = { "name,rank" }
+  local lines = { "name,rank,officernote" }
 
   for i = 1, count do
     local name, rank, rankIndex, level, class, zone, note, officernote, online = GetGuildRosterInfo(i)
     if name and rank then
-      table.insert(entries, { name = name, rank = rank })
-      table.insert(lines, EscapeCSV(name) .. "," .. EscapeCSV(rank))
+      table.insert(entries, { name = name, rank = rank, officernote = officernote })
+      table.insert(lines, EscapeCSV(name) .. "," .. EscapeCSV(rank) .. "," .. EscapeCSV(officernote))
     end
   end
 
@@ -54,7 +54,7 @@ local function PrintExport()
   local export = RaidnRankDB.lastExport
   DEFAULT_CHAT_FRAME:AddMessage("[RaidnRank] Guild: " .. (export.guild or "Unknown") .. " | Members: " .. export.count)
   for _, entry in ipairs(export.entries) do
-    DEFAULT_CHAT_FRAME:AddMessage(entry.name .. "\t" .. entry.rank)
+    DEFAULT_CHAT_FRAME:AddMessage(entry.name .. "\t" .. entry.rank .. "\t" .. (entry.officernote or ""))
   end
 end
 

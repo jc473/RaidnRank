@@ -3,10 +3,14 @@
 Workflow for extracting RaidnRank results and preparing the spreadsheet upload.
 
 ## Steps
-1. In game, run `/rnr extract`.
+1. In game, run `/rnr export`.
 2. Logout or exit so the file is generated at `WTF/Account/<account>/SavedVariables/RaidnRank.lua`.
-3. Copy `RaidnRank.lua` into the same folder as the Python scripts.
-4. Run `python extract_baboons.py`.
-5. Confirm `raidres.csv` is created (name must be exactly `raidres.csv`) in the same folder.
-6. Run `python raidres.py`.
-7. Upload `finalized_raidres.csv` to the correct Google Docs spreadsheet and append it.
+3. Copy `RaidnRank.lua` into the `scripts` folder.
+4. Confirm `raidres.csv` is created (name must be exactly `raidres.csv`) in the `scripts` folder.
+5. Run `python raidres.py` from the `scripts` folder (or double-click `run_raidres.bat`).
+6. Upload `finalized_raidres.csv` to the correct Google Docs spreadsheet and append it.
+
+Notes:
+- Officer notes are exported into the CSV; if a member's officer note contains `alt` (case-insensitive), they will not be duplicated.
+- Eligible ranks are still doubled automatically; no `x2` is needed in the SR sheet.
+-extract_baboons.py is just a helper
