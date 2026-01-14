@@ -8,7 +8,7 @@ Workflow for extracting RaidnRank results and preparing the spreadsheet upload.
 3. Copy `RaidnRank.lua` into `scripts/temp`.
 4. Confirm `raidres.csv` is created (name must be exactly `raidres.csv`) in `scripts/temp`.
 5. Run `python raidres.py` from the `scripts` folder (or double-click `run_raidres.bat`).
-6. (Optional) Place `WoWCombatLog.txt` in the `scripts` folder if you want to filter to names seen in the combat log (name must be exactly `WoWCombatLog.txt`).
+6. (Optional) Place `WoWCombatLog.txt` in the `scripts/temp` folder if you want to filter to names seen in the combat log (name must be exactly `WoWCombatLog.txt`).
 6. Upload `finalized_raidres.csv` to the correct Google Docs spreadsheet and append it.
 
 Notes:
